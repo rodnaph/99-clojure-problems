@@ -1,5 +1,6 @@
 /pom.xml
 *jar
+.DS_Store
 /clojure.watchr.rb
 /lib
 /classes
