@@ -8,6 +8,6 @@
 (defn is-prime? [num]
   (when (> num 1)
     (every? (fn [x] (not (zero? (rem x num))))
-	    (range 2 (inc (int (Math/sqrt num)))))))
+      (range 2 (inc (int (Math/sqrt num)))))))
 
 
