@@ -1,5 +1,6 @@
 /pom.xml
 *jar
+/clojure.watchr.rb
 /lib
 /classes
 /native
