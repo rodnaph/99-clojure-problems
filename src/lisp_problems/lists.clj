@@ -74,6 +74,11 @@
 (defn my-reverse [lst]
   (reduce (fn [r x] (cons x r)) '() lst))      
 
+; Another easy solution? 
+(defn my-reverse-2 [lst]
+  "using reduce and conj"
+  (reduce conj '() lst))
+
 ; P06 (*) Find out whether a list is a palindrome.
 ; A palindrome can be read forward or backward; e.g. (x a m a x).
 
@@ -98,6 +103,9 @@
 ;    * (compress '(a a a a b c c a a d e e e e))
 ;    (A B C A D E)
 
+;  Partition by: Applies f to each value in coll, splitting it each time f returns
+;  a new value. Returns a lazy seq of partitions. 
+
 (defn compress [x]
- ())
+ (map first (partition-by identity x)))
 

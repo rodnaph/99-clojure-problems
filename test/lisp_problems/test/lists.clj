@@ -33,6 +33,7 @@
 (deftest test-reverses-a-list
   "Can reverse the elements in a list"
   (let [x (list 1 2 3)]
+    (is (= (my-reverse-2 x) '(3 2 1)))
     (is (= (my-reverse x) '(3 2 1)))))
 
 (deftest test-palindrome
