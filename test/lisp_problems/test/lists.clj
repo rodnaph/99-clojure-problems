@@ -27,6 +27,18 @@
   (let [x (list 1 2 3 4)
         y (list 9 8 7 6 5 4 3 2 1)]
     (is (= (number-of-elements y) 9))
+    (is (= (number-of-elements x) 4))
     (is (= (number-of-elements-2 x) 4))))
+
+(deftest test-reverses-a-list
+  "Can reverse the elements in a list"
+  (let [x (list 1 2 3)]
+    (is (= (my-reverse x) '(3 2 1)))))
+
+(deftest test-palindrome
+  (let [pal '(1 2 3 2 1)
+        no-pal '(1 2 3 4 5)]
+  (is (= (palindrome pal) true))
+  (is (= (palindrome no-pal) false))))
 
 

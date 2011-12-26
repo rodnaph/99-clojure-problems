@@ -1,6 +1,6 @@
 (ns lisp-problems.lists)
 
-; P01 (*) Find the last box of a list.
+;  P01 (*) Find the last box of a list.
 ;    Example:
 ;    * (my-last '(a b c d))
 ;    (D)
@@ -18,7 +18,7 @@
     (first x)
     (recur (rest x))))
 
-;P02 (*) Find the last but one box of a list.
+;  P02 (*) Find the last but one box of a list.
 ;    Example:
 ;    * (my-but-last '(a b c d))
 ;    (C D)
@@ -36,7 +36,7 @@
   (let [len (count x)]
     (nth x (dec (dec len)))))
 
-;P03 (*) Find the K'th element of a list.
+;  P03 (*) Find the K'th element of a list.
 ;    The first element in the list is number 1.
 ;    Example:
 ;    * (element-at '(a b c d e) 3)
@@ -59,3 +59,45 @@
 
 (defn number-of-elements-2 [lst]
   (reduce (fn [l x] (inc l)) 0 lst))
+
+; A loop based solution
+(defn number-of-elements-3 [lst]
+  (loop [a 0 l lst]
+    (if (empty? l) a
+      (recur (inc a) (rest l)))))
+
+; P05 (*) Reverse a list.
+; Take the first item and then cons a new list? (1 2 3) => (3 2 1)
+
+(defn simple-reverse [lst] (reverse lst))
+
+(defn my-reverse [lst]
+  (reduce (fn [r x] (cons x r)) '() lst))      
+
+; P06 (*) Find out whether a list is a palindrome.
+; A palindrome can be read forward or backward; e.g. (x a m a x).
+
+(defn palindrome [x]
+  (= (reverse x) x))
+
+;  P07 (**) Flatten a nested list structure.
+;    Transform a list, possibly holding lists as elements into a `flat'
+;    list by replacing each list with its elements (recursively).
+;   
+;    Example:
+;      * (my-flatten '(a (b (c d) e)))
+;      (A B C D E)
+
+(defn my-flatten [x]
+  (flatten x))
+
+;  P08 (**) Eliminate consecutive duplicates of list elements.
+;    If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
+;   
+;    Example:
+;    * (compress '(a a a a b c c a a d e e e e))
+;    (A B C A D E)
+
+(defn compress [x]
+ ())
+
