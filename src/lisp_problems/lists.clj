@@ -36,4 +36,10 @@
   (let [len (count x)]
     (nth x (dec (dec len)))))
 
+(defn last-but-one-in-list [x]
+  ((fn [x last]
+     (if (nil? (rest (rest x)))
+       last
+       (recur (rest x) (first (rest x))))) x nil))
+
  
