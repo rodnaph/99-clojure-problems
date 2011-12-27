@@ -36,3 +36,7 @@
 (defn my-reverse [lst]
     (reduce #(cons %2 %1) '() lst))
 
+(defn palindrome [x]
+    (= x (reverse x)))
+
+

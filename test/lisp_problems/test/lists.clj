@@ -32,12 +32,10 @@
   (let [x (list 1 2 3)]
     (is (= (my-reverse x) '(3 2 1)))))
 
-;    (is (= (my-reverse x) '(3 2 1)))))
-;
-;(deftest test-palindrome
-;  (let [pal '(1 2 3 2 1)
-;        no-pal '(1 2 3 4 5)]
-;  (is (= (palindrome pal) true))
-;  (is (= (palindrome no-pal) false))))
-;
-;
+(deftest test-palindrome
+  (let [pal '(1 2 3 2 1)
+        no-pal '(1 2 3 4 5)]
+  (is (= (palindrome pal) true))
+  (is (= (palindrome no-pal) false))))
+
+
