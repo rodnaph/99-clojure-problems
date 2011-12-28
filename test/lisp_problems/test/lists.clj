@@ -38,4 +38,16 @@
   (is (= (palindrome pal) true))
   (is (= (palindrome no-pal) false))))
 
+(deftest test-flatten
+    (let [lst '(1 2 (3 (4) 5) 6 7)
+          flat (range 1 8)]
+        (is (= (my-flatten lst) flat))
+    ))
+
+(deftest test-compress
+    (let [lst '(a a a b b a a c c c c d d)
+          cmp '(a b a c d)]
+        (is (= (my-compress lst) cmp))
+    )
+)
 

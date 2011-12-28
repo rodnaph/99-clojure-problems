@@ -39,4 +39,26 @@
 (defn palindrome [x]
     (= x (reverse x)))
 
+; consumes stack...
+(defn my-flatten [x]
+    (reduce
+        (fn [acc e]
+            (if (list? e)
+                (concat acc (my-flatten e))
+                (concat acc (list e)))
+        )
+        '()
+        x
+    ))
+
+(defn my-compress [lst]
+    (reduce (fn [acc e]
+        (cond
+            (or (empty? acc) 
+                (not (= e (last acc))))
+                (concat acc (list e))
+            :default acc
+        )
+    ) '() lst)
+)
 
