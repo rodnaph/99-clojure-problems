@@ -81,3 +81,6 @@
         vals
         reverse))
 
+(defn my-encode [lst]
+)
+
