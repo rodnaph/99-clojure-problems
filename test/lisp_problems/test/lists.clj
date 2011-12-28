@@ -48,6 +48,15 @@
     (let [lst '(a a a b b a a c c c c d d)
           cmp '(a b a c d)]
         (is (= (my-compress lst) cmp))
+        (is (= (my-compress-2 lst) cmp))
+    )
+)
+
+(deftest test-pack
+    (let [lst '(a a a b b c)
+          pck '((a a a) (b b) (c))]
+        (is (= (my-pack lst) pck))
+        (is (= (my-pack-2 lst) pck))
     )
 )
 

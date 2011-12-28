@@ -59,6 +59,25 @@
                 (concat acc (list e))
             :default acc
         )
-    ) '() lst)
-)
+    ) '() lst))
+
+(defn my-compress-2 [lst]
+    (map first (partition-by identity lst)))
+
+(defn my-pack [lst]
+    (partition-by identity lst))
+
+(defn my-pack-2 [lst]
+    (-> (reduce
+            (fn [acc e]
+                (let [vals (-> (get acc e)
+                            count
+                            inc)]
+                    (assoc acc e (repeat vals e)))
+            )
+            (hash-map)
+            lst
+        )
+        vals
+        reverse))
 
