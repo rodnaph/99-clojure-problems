@@ -82,5 +82,10 @@
         reverse))
 
 (defn my-encode [lst]
-)
+    (->> (partition-by identity lst)
+         (map #(list (count %) (first %)))))
+
+(defn my-encode-2 [lst]
+    (map #(list (count %) (first %))
+        (my-pack lst)))
 
