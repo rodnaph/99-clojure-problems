@@ -67,3 +67,9 @@
         (is (= (my-encode-2 lst) ecd))
     ))
 
+(deftest test-encode-modified
+    (let [lst '(a a a b c c d e e e)
+          ecd '((3 a) b (2 c) d (3 e))]
+        (is (= (my-encode-mod lst) ecd))
+    ))
+

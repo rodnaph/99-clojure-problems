@@ -89,3 +89,8 @@
     (map #(list (count %) (first %))
         (my-pack lst)))
 
+(defn my-encode-mod [lst]
+    (map #(if (= 1 (count %))
+              (first %)
+              %) (my-encode lst)))
+
