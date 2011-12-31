@@ -90,7 +90,7 @@
         (my-pack lst)))
 
 (defn my-encode-mod [lst]
-    (map #(if (= 1 (count %))
-              (first %)
-              %) (my-encode lst)))
+    (map #(let [[n val] %] 
+            (if (= 1 n) val %))
+        (my-encode lst)))
 
