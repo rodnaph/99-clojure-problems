@@ -110,3 +110,12 @@
           explode-all (fn [acc e] (concat acc (fuse e)))]
         (reduce explode-all '() lst)))
 
+(defn my-duplicate [lst]
+    (reduce 
+        #(concat %1 (repeat 2 %2))
+        '()
+        lst))
+
+(defn my-duplicate-2 [lst]
+    (mapcat #(list % %) lst))
+

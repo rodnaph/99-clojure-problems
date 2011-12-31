@@ -80,3 +80,10 @@
         (is (= (my-decode-2 lst) dec))
     ))
 
+(deftest test-duplicate-list
+    (let [lst '(a b c)
+          dup '(a a b b c c)]
+        (is (= (my-duplicate lst) dup))
+        (is (= (my-duplicate-2 lst) dup))
+    ))
+
