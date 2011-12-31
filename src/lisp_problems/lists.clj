@@ -94,3 +94,19 @@
             (if (= 1 n) val %))
         (my-encode lst)))
 
+(defn- explode-run-pair [[n x]]
+    (repeat n x))
+
+(defn- explode-run-element [x]
+    (if (list? x)
+        (explode-run-pair x)
+        x))
+
+(defn my-decode [lst]
+    (flatten (map explode-run-element lst)))
+
+(defn my-decode-2 [lst]
+    (let [fuse #(if (list? %) (explode-run-pair %) (list %))
+          explode-all (fn [acc e] (concat acc (fuse e)))]
+        (reduce explode-all '() lst)))
+

@@ -73,3 +73,10 @@
         (is (= (my-encode-mod lst) ecd))
     ))
 
+(deftest test-decode-run-length
+    (let [lst '((4 a) b (2 c) (3 e) a)
+          dec '(a a a a b c c e e e a)]
+        (is (= (my-decode lst) dec))
+        (is (= (my-decode-2 lst) dec))
+    ))
+
