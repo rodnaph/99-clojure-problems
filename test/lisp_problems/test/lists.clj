@@ -99,4 +99,15 @@
         (is (= (my-drop-every-x lst 3) res))
     ))
 
+(deftest test-split-first-x-items
+    (let [lst '(a b c d e)]
+        (is (= (my-split-first lst 2) '((a b) (c d e))))
+        (is (= (my-split-first lst 3) '((a b c) (d e))))
+    ))
+
+(deftest test-split-first-x-items
+    (let [lst '(a b c d e)]
+        (is (= (my-split-first-2 lst 2) '((a b) (c d e))))
+        (is (= (my-split-first-2 lst 3) '((a b c) (d e))))
+    ))
 

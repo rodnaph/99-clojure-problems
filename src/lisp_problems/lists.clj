@@ -130,3 +130,14 @@
     (->> (partition-all x lst)
          (map (partial trim (dec x)))
          (flatten)))
+
+(defn my-split-first
+    "Split list to first x items and rest"
+    [lst x]
+    (let [spl (partition-all x lst)]
+        (conj '()
+            (flatten (rest spl))
+            (first spl))))
+
+(defn my-split-first-2 [lst x])
+
