@@ -87,3 +87,16 @@
         (is (= (my-duplicate-2 lst) dup))
     ))
 
+(deftest test-duplicate-list-x-times
+    (let [lst '(a b c)
+          dup '(a a a b b b c c c)]
+        (is (= (my-duplicate-x lst 3) dup))
+    ))
+
+(deftest test-drop-every-x-elements
+    (let [lst '(a b c d e f g h i j k)
+          res '(a b d e g h j k)]
+        (is (= (my-drop-every-x lst 3) res))
+    ))
+
+

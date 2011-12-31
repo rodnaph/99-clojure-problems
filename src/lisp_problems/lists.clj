@@ -113,9 +113,20 @@
 (defn my-duplicate [lst]
     (reduce 
         #(concat %1 (repeat 2 %2))
-        '()
-        lst))
+        '() lst))
 
 (defn my-duplicate-2 [lst]
     (mapcat #(list % %) lst))
 
+(defn my-duplicate-x [lst x]
+    (mapcat #(repeat x %) lst))
+
+(defn- trim 
+    "Trim a list to max items"
+    [max lst] 
+    (first (partition-all max lst)))
+
+(defn my-drop-every-x [lst x]
+    (->> (partition-all x lst)
+         (map (partial trim (dec x)))
+         (flatten)))
