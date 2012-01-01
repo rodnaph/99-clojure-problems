@@ -118,3 +118,9 @@
         (is (= (my-splice lst 3 10) '(c d e f)))
     ))
 
+(deftest test-rotate-list
+    (let [lst '(a b c d e f)]
+        (is (= (my-rotate lst 3) '(d e f a b c)))
+        (is (= (my-rotate lst 5) '(b c d e f a)))
+    ))
+

@@ -143,3 +143,12 @@
     [lst start end]
     (drop (dec start) (take end lst)))
 
+(defn my-rotate [lst n]
+    (loop [res lst c n]
+        (if (= c 0)
+            res
+            (recur
+                (cons (last res)
+                      (take (dec (count res)) res))
+                (dec c)))))
+
