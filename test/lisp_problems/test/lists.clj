@@ -111,3 +111,10 @@
         (is (= (my-split-first-2 lst 3) '((a b c) (d e))))
     ))
 
+(deftest test-splice-list
+    (let [lst '(a b c d e f)]
+        (is (= (my-splice lst 1 3) '(a b c)))
+        (is (= (my-splice lst 3 4) '(c d)))
+        (is (= (my-splice lst 3 10) '(c d e f)))
+    ))
+

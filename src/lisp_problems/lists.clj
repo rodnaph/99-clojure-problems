@@ -121,14 +121,10 @@
 (defn my-duplicate-x [lst x]
     (mapcat #(repeat x %) lst))
 
-(defn- trim 
-    "Trim a list to max items"
-    [max lst] 
-    (first (partition-all max lst)))
-
-(defn my-drop-every-x [lst x]
-    (->> (partition-all x lst)
-         (map (partial trim (dec x)))
+(defn my-drop-every-x [lst n]
+    "Drop every nth item"
+    (->> (partition-all n lst)
+         (map (partial take (dec n)))
          (flatten)))
 
 (defn my-split-first
@@ -139,5 +135,11 @@
             (flatten (rest spl))
             (first spl))))
 
-(defn my-split-first-2 [lst x])
+(defn my-split-first-2 [lst x]
+    (list (take x lst) (drop x lst)))
+
+(defn my-splice 
+    "Splice a section of a list"
+    [lst start end]
+    (drop (dec start) (take end lst)))
 
