@@ -152,3 +152,10 @@
                       (take (dec (count res)) res))
                 (dec c)))))
 
+(defn my-rotate-2 [lst n]
+    (let [total (count lst)
+          rotate-by (mod (- total n) total)]
+        (concat
+            (drop rotate-by lst)
+            (take rotate-by lst))))
+

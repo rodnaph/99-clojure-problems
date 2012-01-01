@@ -122,5 +122,13 @@
     (let [lst '(a b c d e f)]
         (is (= (my-rotate lst 3) '(d e f a b c)))
         (is (= (my-rotate lst 5) '(b c d e f a)))
+        (is (= (my-rotate lst 11) '(b c d e f a)))
+    ))
+
+(deftest test-rotate-list
+    (let [lst '(a b c d e f)]
+        (is (= (my-rotate-2 lst 3) '(d e f a b c)))
+        (is (= (my-rotate-2 lst 5) '(b c d e f a)))
+        (is (= (my-rotate-2 lst 11) '(b c d e f a)))
     ))
 
