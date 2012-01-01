@@ -159,3 +159,11 @@
             (drop rotate-by lst)
             (take rotate-by lst))))
 
+(defn my-remove-at [lst n]
+    (concat (take (dec n) lst)
+            (drop n lst)))
+
+(defn my-insert-at [x lst n]
+    (let [[before after] (my-split-first lst (dec n))]
+        (concat before (list x) after)))
+

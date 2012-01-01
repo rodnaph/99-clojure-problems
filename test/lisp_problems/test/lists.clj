@@ -132,3 +132,16 @@
         (is (= (my-rotate-2 lst 11) '(b c d e f a)))
     ))
 
+(deftest test-remove-at
+    (let [lst '(a b c d e)]
+        (is (= (my-remove-at lst 3) '(a b d e)))
+        (is (= (my-remove-at lst 1) '(b c d e)))
+        (is (= (my-remove-at lst 10) '(a b c d e)))
+    ))
+
+(deftest test-insert-at
+    (let [lst '(a b c d e)]
+        (is (= (my-insert-at 'f lst 2) '(a f b c d e)))
+        (is (= (my-insert-at 'f lst 4) '(a b c f d e)))
+    ))
+
