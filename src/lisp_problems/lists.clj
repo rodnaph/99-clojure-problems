@@ -191,15 +191,16 @@
         )
         '() lst))
 
+(my-permute '(a b c) 2)
+
 (defn my-weave 
     "Weave x into the list to generate permutations"
     [lst x]
     (let [size (+ 2 (count (first lst)))
-          inserts (mapcat (fn [x] (range 1 size)) (range 1 size))]
+          ranges (partial range 1 size)
+          inserts (mapcat ranges (ranges))]
         (map
-            (fn [e index] 
-                (my-insert-at x e index)
-            )
+            #(my-insert-at x %1 %2)
             lst inserts
         )
     )
