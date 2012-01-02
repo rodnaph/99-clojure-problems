@@ -191,8 +191,6 @@
         )
         '() lst))
 
-(my-permute '(a b c) 2)
-
 (defn my-weave 
     "Weave x into the list to generate permutations"
     [lst x]
