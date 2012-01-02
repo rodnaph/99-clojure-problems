@@ -141,7 +141,22 @@
 
 (deftest test-insert-at
     (let [lst '(a b c d e)]
+        (is (= (my-insert-at 'f lst 1) '(f a b c d e)))
         (is (= (my-insert-at 'f lst 2) '(a f b c d e)))
         (is (= (my-insert-at 'f lst 4) '(a b c f d e)))
     ))
+
+(deftest test-range
+    (is (= (my-range 4 9) '(4 5 6 7 8 9)))
+    (is (= (my-range 3 4) '(3 4))))
+
+(deftest test-random-extraction
+    (let [lst '(a b c d e f g h)]
+        (is (= (count (my-random-elements lst 3)) 3))
+        (is (= (count (my-random-elements lst 2)) 2))
+    ))
+
+(deftest test-random-numbers
+    (is (= (count (my-random-numbers 6 49)) 6))
+)
 

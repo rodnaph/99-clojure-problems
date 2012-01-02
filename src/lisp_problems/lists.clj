@@ -164,6 +164,51 @@
             (drop n lst)))
 
 (defn my-insert-at [x lst n]
-    (let [[before after] (my-split-first lst (dec n))]
+    (let [[before after] (my-split-first-2 lst (dec n))]
         (concat before (list x) after)))
+
+(defn my-range [start end]
+    (loop [lst '() c end]
+        (if (< c start)
+            lst
+            (recur (cons c lst) (dec c)))))
+
+(defn my-random-elements
+    "Extract a number of random elements fom a list"
+    [lst n]
+    (take n (shuffle lst)))
+
+(defn my-random-numbers
+    [n max]
+    (my-random-elements (my-range 1 max) n))
+
+(defn my-rotations 
+    "Generate all rotations of the given list"
+    [lst]
+    (reduce
+        (fn [acc e]
+            (cons (my-rotate lst (count acc)) acc)
+        )
+        '() lst))
+
+(defn my-weave 
+    "Weave x into the list to generate permutations"
+    [lst x]
+    (let [size (+ 2 (count (first lst)))
+          inserts (mapcat (fn [x] (range 1 size)) (range 1 size))]
+        (map
+            (fn [e index] 
+                (my-insert-at x e index)
+            )
+            lst inserts
+        )
+    )
+)
+
+(defn my-permute 
+    "Generates all n length permutations of list"
+    [lst n]
+    (-> (my-rotations (butlast lst))
+        (my-duplicate-x (count lst))
+        (my-weave (last lst))))
 
