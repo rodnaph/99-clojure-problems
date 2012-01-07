@@ -211,8 +211,6 @@
         (my-duplicate-x (count lst))
         (my-weave (last lst))))
 
-(multi-split-list '(a b c d e f g h i) '(2 3 4))
-
 (defn multi-split-list
     "Split a list into sublists of specified lengths"
     [lst lengths]
