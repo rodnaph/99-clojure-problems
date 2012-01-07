@@ -39,9 +39,9 @@
 (defn prime-factors
     "Calculates prime factors of the given integer"
     [x]
-    (loop [tree '() c x]
+    (loop [factors '() c x]
         (let [f (smallest-factor c)]
             (if (= f c)
-                (reverse (cons f tree))
-                (recur (cons f tree) (/ c f))))))
+                (reverse (cons f factors))
+                (recur (cons f factors) (/ c f))))))
 
