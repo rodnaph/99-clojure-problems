@@ -182,7 +182,7 @@
     [n max]
     (my-random-elements (my-range 1 max) n))
 
-(defn my-rotations 
+(defn- my-rotations 
     "Generate all rotations of the given list"
     [lst]
     (reduce
@@ -191,7 +191,7 @@
         )
         '() lst))
 
-(defn my-weave 
+(defn- my-weave 
     "Weave x into the list to generate permutations"
     [lst x]
     (let [size (+ 2 (count (first lst)))
@@ -210,4 +210,24 @@
     (-> (my-rotations (butlast lst))
         (my-duplicate-x (count lst))
         (my-weave (last lst))))
+
+(multi-split-list '(a b c d e f g h i) '(2 3 4))
+
+(defn multi-split-list
+    "Split a list into sublists of specified lengths"
+    [lst lengths]
+    (loop [result '()
+           remaining lst
+           index (count lengths)]
+        (if (= 0 index)
+            result
+            (recur
+                (cons (take (nth lengths index) remaining))
+                (drop (nth lengths index))
+                (dec index))
+        ))) 
+
+(defn group-subsets
+    "Group list items into all permutations of 2, 3 and 4 subsets"
+    [lst])
 
