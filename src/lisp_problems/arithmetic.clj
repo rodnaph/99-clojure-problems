@@ -29,3 +29,19 @@
         (range 1 m)
     ))
 
+(defn smallest-factor
+    [x]
+    (loop [y 2]
+        (if (= 0 (rem x y))
+            y
+            (recur (inc y)))))
+
+(defn prime-factors
+    "Calculates prime factors of the given integer"
+    [x]
+    (loop [tree '() c x]
+        (let [f (smallest-factor c)]
+            (if (= f c)
+                (reverse (cons f tree))
+                (recur (cons f tree) (/ c f))))))
+

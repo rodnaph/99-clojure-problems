@@ -21,3 +21,6 @@
 (deftest test-eulers-totient
     (is (= 4 (totient 10))))
 
+(deftest test-prime-factors
+    (is (= (prime-factors 315) '(3 3 5 7))))
+
