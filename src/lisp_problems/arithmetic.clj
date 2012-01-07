@@ -16,3 +16,16 @@
                 b
                 (recur b c)))))
 
+(defn coprime?
+    "Indicates if two numbers are coprimes"
+    [x y]
+    (= 1 (gcd x y)))
+
+(defn totient
+    [m]
+    (reduce
+        #(if (coprime? m %2) (inc %1) %1)
+        0 
+        (range 1 m)
+    ))
+

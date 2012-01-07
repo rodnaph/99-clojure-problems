@@ -14,3 +14,10 @@
 (deftest test-gcd
     (is (= 6 (gcd 48 18))))
 
+(deftest test-coprimes
+    (is (coprime? 35 64))
+    (is (not (coprime? 48 18))))
+
+(deftest test-eulers-totient
+    (is (= 4 (totient 10))))
+
