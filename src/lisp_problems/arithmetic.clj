@@ -2,10 +2,10 @@
 (ns lisp-problems.arithmetic)
 
 (defn is-prime? [num]
-    (every?
-        #(> %1 0)
-        (map #(rem num %1)
-            (range 2 (java.lang.Math/sqrt num)))))
+    (empty?
+        (filter
+            #(= % 0)
+            (map #(rem num %) (range 2 num)))))
 
 (defn gcd
     "Calculate greatest common divisor using Euclids algorithm"
@@ -44,4 +44,19 @@
             (if (= f c)
                 (reverse (cons f factors))
                 (recur (cons f factors) (/ c f))))))
+
+(defn prime-factors-multiplicity
+    [x]
+    (map #(list (first %1) (count %1))
+        (partition-by identity (prime-factors x))))
+
+(defn primes
+    "Calculate all primes up to x"
+    [x]
+    (filter is-prime? (range 1 x)))
+
+(defn goldbach
+    [x]
+    (let [xs (primes x)]
+        xs))
 
